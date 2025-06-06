@@ -1,4 +1,4 @@
-const Datatypes = require("sequelize");
+const { DataTypes } = require("sequelize");
 const sequelize = require("../database");
 
 // define the client model
@@ -7,41 +7,41 @@ const Client = sequelize.define(
   "CLient",
   {
     id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       unique: true,
       autoIncrement: true,
       primaryKey: true,
     },
     cpf: {
-      type: Datatypes.STRING,
+      type: DataTypes.STRING,
       unique: true,
       allowNull: false,
     },
     name: {
-      type: Datatypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     email: {
-      type: Datatypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
     phone: {
-      type: Datatypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     credit_ballance: {
-      type: Datatypes.FLOAT,
+      type: DataTypes.FLOAT,
       allowNull: false,
       defaultValue: 0.0,
     },
     is_active: {
-      type: Datatypes.BOOLEAN,
+      type: DataTypes.BOOLEAN,
       defaultValue: true,
     },
     created_at: {
-      type: Datatypes.DATE,
-      defaultValue: Datatypes.NOW,
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
     },
   },
   {
