@@ -2,7 +2,7 @@ const { Payment } = require("../models");
 
 exports.createPayment = async (req, res) => {
   try {
-    const { clientId, paymentMethid, paymentGateway } = req.body;
+    const { clientId, paymentMethod, paymentGateway } = req.body;
 
     const newPayment = await Payment.create({
       clientId,
