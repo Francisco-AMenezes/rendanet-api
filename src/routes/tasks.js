@@ -3,6 +3,6 @@ const router = express.Router();
 const taskController = require('../controllers/tasksController');
 
 // route to execute the tasks
-router.post('/execute', taskController.executeTasks);
+router.post('/tasks/execute', taskController.executeTasks);
 
 module.exports = router;

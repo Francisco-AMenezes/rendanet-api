@@ -5,6 +5,11 @@ const bodyParser = require("body-parser");
 const port = process.env.PORT || 3000;
 const app = express();
 
+// import routes
+const paymentsRoutes = require("./routes/payments");
+const installationsRoutes = require("./routes/installations"); 
+const tasksRoutes = require("./routes/tasks");
+
 
 // middlewares
 app.use(bodyParser.json());
@@ -15,9 +20,9 @@ const models = require("./models");
 
 
 // use routes
-app.use("/api/payments", require("./routes/payments"));
-app.use("/api/installations", require("./routes/installations"));
-app.use("/api/tasks", require("./routes/tasks"))
+app.use("/api/", paymentsRoutes);
+app.use("/api/", installationsRoutes);
+app.use("/api/", tasksRoutes);
 
 // sync database
 
