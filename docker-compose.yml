@@ -1,16 +1,17 @@
+version: '3.8'
+
 services:
   api:
     build: .
     ports:
-      - "3000:3000"
+      - "${PORT:-3000}:3000"
     depends_on:
       - db
+    env_file:
+      - .env
     environment:
-      DB_NAME: rendanet
-      DBUSER: root
-      DBPASSWORD: process.env.DB_PASSWORD
-      DBHOST: db
-    volumes: 
+      TZ: America/Sao_Paulo
+    volumes:
       - .:/usr/src/app
 
   db:
@@ -18,8 +19,8 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: process.env.DB_PASSWORD
-      MYSQL_DATABASE: rendanet
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
     volumes:
       - db_data:/var/lib/mysql
 
@@ -30,7 +31,7 @@ services:
       - "8080:80"
     environment:
       PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: process.env.DB_PASSWORD
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     depends_on:
       - db
 

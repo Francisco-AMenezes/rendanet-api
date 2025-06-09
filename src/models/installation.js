@@ -30,7 +30,7 @@ const Installation = sequelize.define(
     },
   },
   {
-    tableName: "instaltions",
+    tableName: "installations",
     timestamps: false,
   }
 );
