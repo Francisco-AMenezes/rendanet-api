@@ -4,7 +4,7 @@ const sequelize = require("../database");
 // define the client model
 
 const Client = sequelize.define(
-  "CLient",
+  "Client",
   {
     id: {
       type: DataTypes.INTEGER,
